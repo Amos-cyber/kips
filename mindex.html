@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baraka Business | Computer Solutions</title>
+
+    <style>
+        /* GENERAL STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #222;
+            background: #f5f7fb;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #071b35;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #ffb703;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffb703;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 480px;
+            padding: 90px 7%;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(90deg, #071b35 15%, #071b35dd 65%, #071b3566),
+                url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80")
+                center/cover;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero h1 {
+            font-size: clamp(35px, 5vw, 55px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #ffb703;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffb703;
+            color: #071b35;
+            padding: 12px 23px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            margin: 5px 5px 5px 0;
+        }
+
+        .btn:hover {
+            background: #ffd166;
+        }
+
+        .btn-dark {
+            background: #071b35;
+            color: white;
+        }
+
+        /* GENERAL SECTIONS */
+        section {
+            padding: 65px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: #071b35;
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 35px;
+            color: #606b7a;
+        }
+
+        /* SERVICES */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 28px 22px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px #071b3510;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .service-card .icon {
+            font-size: 38px;
+        }
+
+        .service-card h3 {
+            margin: 12px 0;
+            color: #071b35;
+        }
+
+        /* PRODUCTS */
+        .products-section {
+            background: #eaf0f8;
+        }
+
+        .search-box {
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            padding: 14px;
+            margin: 0 auto 30px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px #071b3512;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            color: #071b35;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            margin-bottom: 12px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #087443;
+            font-size: 19px;
+        }
+
+        /* ABOUT */
+        .about {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 35px;
+            align-items: center;
+        }
+
+        .about h2 {
+            color: #071b35;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .about img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* CONTACT */
+        .contact-section {
+            background: #071b35;
+            color: white;
+        }
+
+        .contact-section .section-title {
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: #ffffff12;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .contact-card a {
+            color: #ffcf5c;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-form {
+            max-width: 650px;
+            margin: 35px auto 0;
+            display: grid;
+            gap: 14px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font: inherit;
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #041020;
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+
+        .empty-message {
+            text-align: center;
+            grid-column: 1 / -1;
+            padding: 25px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero {
+                padding-top: 65px;
+                padding-bottom: 65px;
+            }
+
+            section {
+                padding: 45px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">BARAKA BUSINESS</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HOMEPAGE -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Smart Technology for <span>Your Business</span></h1>
+
+            <p>
+                Welcome to Baraka Business. We provide computer equipment,
+                accessories, technical support and digital solutions
+                to help individuals and businesses grow.
+            </p>
+
+            <a href="#products" class="btn">Explore Products</a>
+            <a href="#contact" class="btn">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <h2 class="section-title">Our Services</h2>
+
+        <p class="section-description">
+            Reliable technology services for students, homes,
+            offices and businesses.
+        </p>
+
+        <div class="services">
+            <div class="service-card">
+                <div class="icon">💻</div>
+                <h3>Computer Sales</h3>
+                <p>Laptops, desktop computers and office computing equipment.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🖱️</div>
+                <h3>Computer Accessories</h3>
+                <p>Keyboards, mice, printers, storage devices and cables.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🔧</div>
+                <h3>Computer Repair</h3>
+                <p>Computer troubleshooting, maintenance and technical support.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🌐</div>
+                <h3>Website Development</h3>
+                <p>Modern websites for businesses, schools and organizations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products-section" id="products">
+        <h2 class="section-title">Our Products</h2>
+
+        <p class="section-description">
+            Search our sample product catalogue and send an inquiry.
+        </p>
+
+        <input
+            type="text"
+            id="searchInput"
+            class="search-box"
+            placeholder="Search laptops, printers, accessories..."
+            aria-label="Search products"
+        >
+
+        <div class="products" id="productList">
+
+            <div class="product-card" data-name="laptop computer">
+                <img
+                    src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=700&q=80"
+                    alt="Laptop computer"
+                    loading="lazy"
+                >
+                <div class="product-info">
+                    <h3>Laptop Computers</h3>
+                    <p>Computers for study, work and business.</p>
+                    <p class="price">Request a Quote</p>
+                    <button class="btn" onclick="orderProduct('Laptop Computers')">
+                        Inquire Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card" data-name="keyboard mouse accessories">
+                <img
+                    src="https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=700&q=80"
+                    alt="Computer mouse and accessories"
+                    loading="lazy"
+                >
+                <div class="product-info">
+                    <h3>Computer Accessories</h3>
+                    <p>Useful accessories for home and office.</p>
+                    <p class="price">Request a Quote</p>
+                    <button class="btn" onclick="orderProduct('Computer Accessories')">
+                        Inquire Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card" data-name="printer office equipment">
+                <img
+                    src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=700&q=80"
+                    alt="Office printer"
+                    loading="lazy"
+                >
+                <div class="product-info">
+                    <h3>Printers and Office Equipment</h3>
+                    <p>Printing equipment and office technology.</p>
+                    <p class="price">Request a Quote</p>
+                    <button class="btn" onclick="orderProduct('Printers and Office Equipment')">
+                        Inquire Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card" data-name="website design digital services">
+                <img
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80"
+                    alt="Website and digital services"
+                    loading="lazy"
+                >
+                <div class="product-info">
+                    <h3>Digital Services</h3>
+                    <p>Website creation and online business support.</p>
+                    <p class="price">Request a Quote</p>
+                    <button class="btn" onclick="orderProduct('Digital Services')">
+                        Inquire Now
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="about">
+            <div>
+                <h2>About Baraka Business</h2>
+
+                <p>
+                    Baraka Business aims to make technology more accessible
+                    by providing computer equipment, accessories and
+                    digital services for customers.
+                </p>
+
+                <p>
+                    Our goal is to offer helpful service, reliable products
+                    and practical technology solutions for everyday needs.
+                </p>
+
+                <br>
+
+                <a href="#contact" class="btn btn-dark">Talk to Our Team</a>
+            </div>
+
+            <div>
+                <img
+                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80"
+                    alt="Modern business workspace"
+                    loading="lazy"
+                >
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+
+        <p class="section-description" style="color:#dce5f2">
+            Get in touch for product inquiries, quotations and services.
+        </p>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>📧 Email</h3>
+                <p>
+                    <a href="mailto:amoskoech826@gmail.com">
+                        amoskoech826@gmail.com
+                    </a>
+                </p>
+            </div>
+
+            <div class="contact-card">
+                <h3>📍 Location</h3>
+                <p>Kisii, Kenya</p>
+            </div>
+
+            <div class="contact-card">
+                <h3>💬 WhatsApp</h3>
+                <p>Contact us directly to discuss your needs.</p>
+                <a href="https://wa.me/?text=Hello%20Baraka%20Business"
+                   target="_blank" rel="noopener noreferrer">
+                    Send a WhatsApp inquiry
+                </a>
+            </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+            <input type="text" id="customerName"
+                   placeholder="Your full name" required>
+
+            <input type="email" id="customerEmail"
+                   placeholder="Your email address" required>
+
+            <textarea id="customerMessage"
+                      placeholder="How can we help you?"
+                      required></textarea>
+
+            <button type="submit" class="btn">
+                Send Inquiry by Email
+            </button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            &copy; <span id="year"></span> Baraka Business.
+            All rights reserved.
+        </p>
+        <p>Technology • Service • Growth</p>
+    </footer>
+
+    <script>
+        // AUTOMATIC COPYRIGHT YEAR
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        // PRODUCT SEARCH
+        const searchInput = document.getElementById("searchInput");
+        const productCards = document.querySelectorAll(".product-card");
+
+        searchInput.addEventListener("input", function () {
+            const searchText = this.value.toLowerCase();
+            let visibleCount = 0;
+<Question ID="1" Shortcut="Q1" Order="" ElementType="question" QuestionType="open" Anonymity="1" AllowDK="1" Translated="0" >
+<LongCaption></LongCaption>
+<Routings>
+</Routings>
+</Question>
+<Question ID="2" Shortcut="Q2" Order="" ElementType="question" QuestionType="open" Anonymity="1" AllowDK="1" Translated="0" >
+<LongCaption></LongCaption>
+<Routings>
+</Routings>
+</Question>
+
+            productCards.forEach(function (card) {
+                const productName =
+                    (card.dataset.name + " " + card.innerText).toLowerCase();
+
+                const matches = productName.includes(searchText);
+
+                card.style.display = matches ? "" : "none";
+
+                if (matches) visibleCount++;
+            });
+
+            let message = document.getElementById("noProducts");
+
+            if (visibleCount === 0) {
+                if (!message) {
+                    message = document.createElement("p");
+                    message.id = "noProducts";
+                    message.className = "empty-message";
+                    message.textContent =
+                        "No matching products. Please try another search.";
+                    document.getElementById("productList").appendChild(message);
+                }
+            } else if (message) {
+                message.remove();
+            }
+        });
+
+        // PRODUCT INQUIRY THROUGH WHATSAPP
+        function orderProduct(productName) {
+            const message =
+                "Hello Baraka Business, I would like to inquire about " +
+                productName + ". Please send me the price and details.";
+
+            const whatsappURL =
+                "https://wa.me/?text=" + encodeURIComponent(message);
+
+            window.open(whatsappURL, "_blank", "noopener,noreferrer");
+        }
+
+        // CONTACT FORM OPENS THE CUSTOMER'S EMAIL APPLICATION
+        document.getElementById("contactForm").addEventListener(
+            "submit",
+            function (event) {
+                event.preventDefault();
+
+                const name =
+                    document.getElementById("customerName").value.trim();
+
+                const email =
+                    document.getElementById("customerEmail").value.trim();
+
+                const message =
+                    document.getElementById("customerMessage").value.trim();
+
+                const subject = encodeURIComponent(
+                    "Business inquiry from " + name
+                );
+
+                const body = encodeURIComponent(
+                    "Customer name: " + name +
+                    "\nCustomer email: " + email +
+                    "\n\nMessage:\n" + message
+                );
+
+                window.location.href =
+                    "mailto:amoskoech826@gmail.com?subject=" +
+                    subject + "&body=" + body;
+            }
+        );
+        </script>
+        </body>
+        </html>
